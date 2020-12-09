@@ -7,8 +7,31 @@ class UserController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  get "/:id" do
-    erb :welcome
+  get '/users/new' do
+    erb :'/users/new'
+  end 
+
+  post '/users' do
+    @user = User.new(name: params["name"], email: params["email"], password: params["password"])
+    @user.save
+    binding.pry 
+    session[:user_id] = @user.id
+
+    redirect '/users/#{@user.id}'
+  end
+
+  get '/users/sign_in' do
+    erb :'/users/sign_in'
+  end 
+
+  ##
+  post '/users' do
+    @user = User.new(name: params["name"], email: params["email"], password: params["password"])
+    @user.save
+    binding.pry 
+    session[:user_id] = @user.id
+
+    redirect '/users/#{@user.id}'
   end
 
 end

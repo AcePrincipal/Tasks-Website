@@ -7,11 +7,11 @@ class TasksController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  get "/:id/tasks" do
+  get "/tasks" do
     erb :welcome
   end
 
-  get "/:id/tasks/new" do
+  get "/tasks/new" do
     erb :'tasks/new'
   end 
 
