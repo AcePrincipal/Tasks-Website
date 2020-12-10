@@ -1,11 +1,4 @@
-require './config/environment'
-
-class TasksController < Sinatra::Base
-
-  configure do
-    set :public_folder, 'public'
-    set :views, 'app/views'
-  end
+class TasksController < ApplicationController
 
   get "/tasks" do
     erb :welcome

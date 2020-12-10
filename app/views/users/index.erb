@@ -1,1 +1,8 @@
 <h1> "Ello Wurld!"</h1>
+
+<% if logged_in? %>
+    <form method="POST" action="/logout">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Logout">
+    </form>
+<% end %>
