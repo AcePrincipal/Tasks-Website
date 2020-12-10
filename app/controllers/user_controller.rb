@@ -14,21 +14,18 @@ class UserController < Sinatra::Base
   post '/users' do
     @user = User.new(name: params["name"], email: params["email"], password: params["password"])
     @user.save
-    binding.pry 
     session[:user_id] = @user.id
 
     redirect '/users/#{@user.id}'
   end
 
-  get '/users/sign_in' do
-    erb :'/users/sign_in'
+  get '/users/login' do
+    erb :'/users/login'
   end 
 
   ##
   post '/users' do
-    @user = User.new(name: params["name"], email: params["email"], password: params["password"])
-    @user.save
-    binding.pry 
+    @user = User.find(email: params["email"], password: params["password"])
     session[:user_id] = @user.id
 
     redirect '/users/#{@user.id}'
