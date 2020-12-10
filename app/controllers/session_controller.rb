@@ -1,6 +1,6 @@
 require './config/environment'
 
-class UserController < Sinatra::Base
+class SessionController < Sinatra::Base
 
   configure do
     set :public_folder, 'public'
@@ -14,4 +14,5 @@ class UserController < Sinatra::Base
   delete '/logout' do
     session clear 
     redirect to '/welcome'
+  end 
 end 

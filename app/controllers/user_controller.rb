@@ -13,22 +13,17 @@ class UserController < Sinatra::Base
 
   post '/users' do
     @user = User.new(name: params["name"], email: params["email"], password: params["password"])
-    @user.save
-    session[:user_id] = @user.id
-
-    redirect '/users/#{@user.id}'
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to '/users/#{@user.id}'
+    else
+      @error = @user.errors.full_messages.join(" - ")
+      erb :'/users/new'
+    end
   end
 
-  get '/users/login' do
-    erb :'/users/login'
+  get '/users/' do 
+    erb :'/users/index'
   end 
-
-  ##
-  post '/users' do
-    @user = User.find(email: params["email"], password: params["password"])
-    session[:user_id] = @user.id
-
-    redirect '/users/#{@user.id}'
-  end
 
 end
