@@ -1,6 +1,7 @@
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
+  #before action :authenticate
 
   configure do
     set :public_folder, 'public'

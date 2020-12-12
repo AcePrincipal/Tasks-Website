@@ -9,7 +9,7 @@ class SessionController < ApplicationController
 
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      redirect to '/users/#{@user.id}'
+      redirect to '/tasks'
     else
       redirect to '/users/login'
     end 

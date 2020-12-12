@@ -1,0 +1,12 @@
+<h1>Your Tasks:</h1>
+
+<% @tasks.each do |task| %>
+    <%= task.name %></br>
+<% end %>
+
+<% if logged_in? %>
+    <form method="POST" action="/logout">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Logout">
+    </form>
+<% end %>
