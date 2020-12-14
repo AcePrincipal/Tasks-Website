@@ -9,12 +9,16 @@ class SessionController < ApplicationController
 
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      redirect to '/tasks'
+      redirect to "/users/#{@user.id}"
     else
       redirect to '/users/login'
     end 
   end 
 
+  get '/logout' do
+    session.clear 
+    redirect to '/'
+  end 
 
   delete '/logout' do
     session.clear 
