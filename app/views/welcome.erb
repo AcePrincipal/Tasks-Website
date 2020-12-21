@@ -1,4 +1,6 @@
 <h1>WELCOME!</h1>
-    <h4>Please sign up or log in to access your tasks!</h4>
+    <% if !logged_in? %>
+        <h4>Please sign up or log in to access your tasks!</h4>
         <a href="/users/new">Sign Up</a>
         <a href="/users/login">Log In</a> 
+    <% end %> 

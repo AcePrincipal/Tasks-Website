@@ -16,8 +16,9 @@
   <body>
     <div class="nav">
       <% if logged_in? %>
+        <a href='/tasks/all'>All Tasks</a> |
         <a href='/tasks/new'>Create Tasks</a> |
-        <a href='/tasks'>All Tasks</a> |
+        <a href='/tasks'>Your Tasks</a> |
         <a href='/logout'>Logout</a>
       <% end %>
     </div>

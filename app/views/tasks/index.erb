@@ -1,10 +1,8 @@
 <h1>Your Tasks:</h1>
 
 <% if logged_in? %>
-    
     <% #Display tasks %>
-    <% @user_task.each do |task| %>
-        Task: <%= task.name %></br>
+    <% @tasks.each do |task| %>
+        <a href="/tasks/<%= task.id %>">Task:</a> <%= task.name %></br>
     <% end %>
-
 <% end %>

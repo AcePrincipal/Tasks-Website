@@ -1,0 +1,8 @@
+<h1>All Tasks:</h1>
+
+<% if logged_in? %>
+    <% #Display all tasks with usernames %>
+    <% @tasks.each do |task| %>
+        <%= task.user.name %>: <%= task.name %></br>
+    <% end %>
+<% end %>
